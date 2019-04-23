@@ -1,0 +1,37 @@
+#bank {
+  height: 100px;
+}
+#firm {
+  height: 180px;
+}
+
+.main {
+  height: 270px;
+}
+
+.text {
+  height: 50px;
+  border: 2px solid red;
+}
+
+.rate {
+  font-size: 12px;
+
+}
+.underRate {
+  font-size: 8px;
+}
+
+.lables {
+  height: 50px;
+}
+
+
+@media (min-width: 768px) {
+  .rate {
+    font-size: 20px;
+  }
+  .underRate {
+    font-size: 12px;
+  }
+}

@@ -13,8 +13,17 @@ const initialState = {
   time: 0,
   profite: 0
 };
+
 const reducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case "SET_INVEST":
+      return {
+        ...state,
+        invest: action.payload
+      }
+    default:
+    return state;
+  }
 }
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 ReactDOM.render(

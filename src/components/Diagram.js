@@ -3,6 +3,20 @@ import { connect } from "react-redux";
 import "./Diagram.scss";
 
 class Diagram extends Component {
+  setSpaces = number => {
+    number += "";
+    number = number.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1 ");
+    return number;
+  };
+
+  getProfitFor6Rate = (invest, time) => {
+    invest = parseInt(invest);
+    time = parseInt(time);
+    let profit = invest * 1000 * Math.pow(1 + 6.5 / 100 / 12, time);
+    profit = profit - invest * 1000;
+    return Math.floor(profit);
+  };
+
   render() {
     return (
       <>
@@ -10,7 +24,16 @@ class Diagram extends Component {
           <div className=" col-5 col-md-4 border" id="bank">
             <div className="row">
               <div className="col-12 text text-center">
-                <p className="mb-0 rate"> + 12 0000</p>
+                <p className="mb-0 rate">
+                  {" "}
+                  +{" "}
+                  {this.setSpaces(
+                    this.getProfitFor6Rate(
+                      this.props.store.invest,
+                      this.props.store.time
+                    )
+                  )}
+                </p>
                 <p className="mb-0 underRate"> 6,5% годовых</p>
               </div>
             </div>
@@ -18,8 +41,14 @@ class Diagram extends Component {
           <div className=" col-5 col-md-4 border" id="firm">
             <div className="row">
               <div className="col-12 text text-center">
-                <p className="mb-0 rate"> + 12 0000</p>
-                <p className="mb-0 underRate"> 6,5% годовых</p>
+                <p className="mb-0 rate">
+                  {" "}
+                  + {this.setSpaces(this.props.store.profit)}
+                </p>
+                <p className="mb-0 underRate">
+                  {" "}
+                  {this.props.store.interestRate}% годовых
+                </p>
               </div>
             </div>
           </div>
@@ -29,9 +58,13 @@ class Diagram extends Component {
           <div className="lable col-5 col-md-4 text-center">Город денег</div>
         </div>
         <div className="row">
-          <div className = "col-12 text-center pt-4">
-            <button type="button" className="btn btn-danger" id = "investButton"
-            style = {{borderRadius: "20px"}}>
+          <div className="col-12 text-center pt-4">
+            <button
+              type="button"
+              className="btn btn-danger"
+              id="investButton"
+              style={{ borderRadius: "20px" }}
+            >
               Инвестировать
             </button>
           </div>
@@ -45,7 +78,5 @@ export default connect(
   state => ({
     store: state
   }),
-  dispatch => ({
-  
-  })
+  dispatch => ({})
 )(Diagram);

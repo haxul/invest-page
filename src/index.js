@@ -10,52 +10,37 @@ import { createStore } from "redux";
 const initialState = {
   invest: 0,
   interestRate: 9,
-  time: 50,
-  profit: 0
+  time: 36
 };
 
 const reducer = (state = initialState, action) => {
-  
-  const computeProfit = (invest, rate, time) => {
-    invest = parseInt(invest);
-    rate = parseInt(rate);
-    time = parseInt(time);
-    let profit = invest * 1000 * Math.pow(1 + rate / 100 / 12, time);
-    profit = profit - invest * 1000;
-    return Math.floor(profit);
-  };
 
   switch (action.type) {
     case "SET_INVEST":
       return {
         ...state,
-        invest: action.payload,
-        profit: computeProfit(state.invest, state.interestRate, state.time)
+        invest: action.payload
       };
     case "SET_TIME":
       return {
         ...state,
-        time: action.payload,
-        profit: computeProfit(state.invest, state.interestRate, state.time)
+        time: action.payload
       };
     case "SET_INVEST_RATE":
       if (action.payload === "conservativeRate") {
         return {
           ...state,
-          interestRate: 9,
-          profit: computeProfit(state.invest, state.interestRate, state.time)
+          interestRate: 9
         };
       } else if (action.payload === "balancedRate") {
         return {
           ...state,
-          interestRate: 18,
-          profit: computeProfit(state.invest, state.interestRate, state.time)
+          interestRate: 18
         };
       } else {
         return {
           ...state,
-          interestRate: 25,
-          profit: computeProfit(state.invest, state.interestRate, state.time)
+          interestRate: 25
         };
       }
     default:

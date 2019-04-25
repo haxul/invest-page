@@ -4,13 +4,10 @@ import { connect } from "react-redux";
 import Diagram from "./components/Diagram.js";
 
 class App extends Component {
+
   setSpaceInNumber = number => {
-    let start, end;
-    if (number.length >= 4) {
-      start = number.slice(0, 1);
-      end = number.slice(1);
-      number = start + " " + end;
-    }
+    number += "";
+    number = number.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1 ");
     return number;
   };
 
@@ -48,7 +45,7 @@ class App extends Component {
               type="range"
               className="form-control-range"
               id="formControlRange"
-              max="3000"
+              max="1000"
               min="1"
               step="1"
               onInput={this.setInvest}
@@ -62,27 +59,31 @@ class App extends Component {
               id="formControlRange"
               type="range"
               min="1"
-              max="60"
+              max="36"
               step="1"
               name="input"
               onInput={this.setTimeInvest}
             />
-            <div onChange={this.setInvestRate}>
+            <div >
               <p className="mt-5">
                 <input
                   name="rate"
                   type="radio"
                   id="conservativeRate"
                   defaultChecked
+
+                  onChange={this.setInvestRate}
                 />
                 Консервативный
               </p>
               <p>
-                <input name="rate" type="radio" id="balancedRate" />
+                <input name="rate" type="radio" id="balancedRate"
+                onChange={this.setInvestRate} />
                 Сбалансированный
               </p>
               <p>
-                <input name="rate" type="radio" id="riskRate" />
+                <input name="rate" type="radio" id="riskRate"
+                onChange={this.setInvestRate}/>
                 Рискованынй
               </p>
             </div>

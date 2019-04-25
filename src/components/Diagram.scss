@@ -1,14 +1,10 @@
-#bank {
-  height: 100px;
-}
-#firm {
-  height: 180px;
-}
 
 .main {
-  height: 270px;
+  height: 300px;
 }
-
+#firm {
+  height: 100px;
+}
 .text {
   height: 50px;
   border: 2px solid red;
@@ -23,9 +19,12 @@
 }
 
 .lables {
-  height: 50px;
+  height: 35px;
 }
 
+.organisation {
+  font-size: 12px;
+}
 
 @media (min-width: 768px) {
   .rate {
@@ -33,5 +32,8 @@
   }
   .underRate {
     font-size: 12px;
+  }
+  .organisation {
+    font-size: 16px;
   }
 }

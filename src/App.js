@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import "./App.scss";
 import { connect } from "react-redux";
 import Diagram from "./components/Diagram.js";
+import rubleIcon from "./icons/ruble.png";
 
 class App extends Component {
-
   setSpaceInNumber = number => {
     number += "";
     number = number.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1 ");
@@ -25,37 +25,33 @@ class App extends Component {
 
   render() {
     return (
-      <div
-        className="container"
-        style={{
-          marginTop: "9%",
-          marginBottom: "10%"
-        }}
-      >
+      <div className="container" id="wrapper">
         <div className="row justify-content-center">
-          <div className="col-11 col-sm-5 border path pt-3 pb-3">
+          <div className="col-11 col-sm-5 border path pt-3 pb-3 radiused">
             {" "}
-            <h4 className="">Калькулятор доходности </h4>
-            <p className="">Сумма инвестрирования</p>
-            <p className="">
+            <h4 className="pb-4">Калькулятор доходности портфеля</h4>
+            <p className="underLable">Сумма инвестрирования</p>
+            <p className=" investSum py-0">
               <span>{this.setSpaceInNumber(this.props.store.invest)} 000</span>{" "}
-              <span> P</span>
+              <img
+                style={{ marginBottom: "2px" }}
+                src={rubleIcon}
+                style={{ height: "16px" }}
+              />
             </p>
             <input
               type="range"
-              className="form-control-range"
+              className="form-control-range range"
               id="formControlRange"
               max="1000"
               min="1"
               step="1"
               onInput={this.setInvest}
             />
-            <p className="">Сроки</p>
-            <p className="">
-              {this.props.store.time} <span> мес.</span>
-            </p>
+            <p className="underLable mb-0 py-3">Срок</p>
+            <p className="investSum">{this.props.store.time} мес.</p>
             <input
-              className="form-control-range"
+              className="form-control-range range"
               id="formControlRange"
               type="range"
               min="1"
@@ -64,31 +60,61 @@ class App extends Component {
               name="input"
               onInput={this.setTimeInvest}
             />
-            <div >
-              <p className="mt-5">
+            <div className="mt-5">
+              <label
+                className="container2"
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "16px",
+                  fontFamaly: "Helvetica Neue sans-serif"
+                }}
+              >
+                Консервативный
                 <input
-                  name="rate"
                   type="radio"
-                  id="conservativeRate"
                   defaultChecked
-
+                  name="radio"
+                  onChange={this.setInvestRate}
+                  id="conservativeRate"
+                />
+                <span className="checkmark" />
+              </label>
+              <label
+                className="container2"
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "16px",
+                  fontFamaly: "Helvetica Neue sans-serif"
+                }}
+              >
+                Сбалансированный
+                <input
+                  type="radio"
+                  name="radio"
+                  onChange={this.setInvestRate}
+                  id="balancedRate"
+                />
+                <span className="checkmark" />
+              </label>
+              <label
+                className="container2"
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "16px",
+                  fontFamaly: "Helvetica Neue sans-serif"
+                }}
+              >
+                Рискованный
+                <input
+                  type="radio"
+                  name="radio"
                   onChange={this.setInvestRate}
                 />
-                Консервативный
-              </p>
-              <p>
-                <input name="rate" type="radio" id="balancedRate"
-                onChange={this.setInvestRate} />
-                Сбалансированный
-              </p>
-              <p>
-                <input name="rate" type="radio" id="riskRate"
-                onChange={this.setInvestRate}/>
-                Рискованынй
-              </p>
+                <span className="checkmark" />
+              </label>
             </div>
           </div>
-          <div className="col-10 col-sm-7 border mt-sm-2 mb-sm-2 path">
+          <div className="col-10 col-sm-7 border mt-sm-2 mb-sm-2 path twosiderad">
             <Diagram />
           </div>
         </div>

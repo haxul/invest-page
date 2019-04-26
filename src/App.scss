@@ -1,7 +1,209 @@
+$gray: #a4a3a4;
+$green: #42cb96;
+
 body {
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
 }
 
+h4,
+.investSum,
+.container2 {
+  text-shadow: 1px 2px 3px #cccccc;
+}
+#wrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  #wrapper {
+    margin-top: 90px;
+    margin-bottom: 100px;
+  }
+}
 .path {
   background-color: white;
+  -webkit-box-shadow: 5px 5px 20px 1px #cfcfcf;
+  box-shadow: 5px 5px 20px 1px #cfcfcf;
 }
+
+.radiused {
+  border-radius: 10px;
+}
+
+.twosiderad {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.underLable {
+  color: $gray;
+  font-size: 14px;
+}
+
+.investSum {
+  font-weight: bold;
+}
+
+.textForRadio {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+input[type="range"].range {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 12.5px 0;
+}
+
+/* input  ----------------- begin ---------------- */
+
+input[type="range"].range:focus {
+  outline: none;
+}
+
+input[type="range"].range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #8bdfbf, 0px 0px 0px #9fe5ca;
+  background: #42cb96;
+  border-radius: 13.6px;
+  border: 0.5px solid #8bdfbf;
+}
+
+input[type="range"].range::-webkit-slider-thumb {
+  box-shadow: 3.4px 3.4px 8.6px #b9e6e6, 0px 0px 3.4px #cceded;
+  border: 7.5px solid #ffffff;
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  background: #42cb96;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -13px;
+}
+input[type="range"].range:focus::-webkit-slider-runnable-track {
+  background: #42cb96;
+}
+input[type="range"].range::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #8bdfbf, 0px 0px 0px #9fe5ca;
+  background: #42cb96;
+  border-radius: 13.6px;
+  border: 0.5px solid #8bdfbf;
+}
+input[type="range"].range::-moz-range-thumb {
+  box-shadow: 3.4px 3.4px 8.6px #b9e6e6, 0px 0px 3.4px #cceded;
+  border: 7.5px solid #ffffff;
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  background: #42cb96;
+  cursor: pointer;
+}
+input[type="range"].range::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type="range"].range::-ms-fill-lower {
+  background: #42cb96;
+  border: 0.5px solid #8bdfbf;
+  border-radius: 27.2px;
+  box-shadow: 0px 0px 0px #8bdfbf, 0px 0px 0px #9fe5ca;
+}
+input[type="range"].range::-ms-fill-upper {
+  background: #42cb96;
+  border: 0.5px solid #8bdfbf;
+  border-radius: 27.2px;
+  box-shadow: 0px 0px 0px #8bdfbf, 0px 0px 0px #9fe5ca;
+}
+input[type="range"].range::-ms-thumb {
+  box-shadow: 3.4px 3.4px 8.6px #b9e6e6, 0px 0px 3.4px #cceded;
+  border: 7.5px solid #ffffff;
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  background: #42cb96;
+  cursor: pointer;
+  height: 5px;
+}
+input[type="range"].range:focus::-ms-fill-lower {
+  background: #42cb96;
+}
+input[type="range"].range:focus::-ms-fill-upper {
+  background: #42cb96;
+}
+/*   ---------------- end ------------------ */
+
+/* radio buttons  ======= begin ============================ */
+.container2 {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container2 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container2:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container2 input:checked ~ .checkmark {
+  background-color: $green;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  visibility: hidden;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container2 input:checked ~ .checkmark:after {
+  visibility: visible;
+}
+
+/* Style the indicator (dot/circle) */
+.container2 .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* ==================  end ================================= */

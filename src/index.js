@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 
 const initialState = {
-  invest: 0,
+  invest: 1,
   interestRate: 9,
   time: 36
 };

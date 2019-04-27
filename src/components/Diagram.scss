@@ -1,3 +1,6 @@
+$gray: #a4a3a4;
+$green: #42cb96;
+$red: #f44747;
 
 .main {
   height: 300px;
@@ -7,15 +10,16 @@
 }
 .text {
   height: 50px;
-  border: 2px solid red;
 }
 
 .rate {
   font-size: 12px;
-
+  font-weight: bold;
+  text-shadow: 1px 2px 3px #cccccc;
 }
 .underRate {
   font-size: 8px;
+  color: $gray;
 }
 
 .lables {
@@ -24,6 +28,23 @@
 
 .organisation {
   font-size: 12px;
+  color: #474747;
+  font-weight: 500;
+  text-shadow: 1px 2px 3px #cccccc;
+  padding-left: 40px;
+}
+
+@media (min-width: 769px) {
+  .organisation {
+    font-size: 12px;
+    color: #474747;
+    font-weight: 500;
+    text-shadow: 1px 2px 3px #cccccc;
+    padding-left: 60px;
+  }
+}
+#investButton {
+  box-shadow: 0px 7px 20px -5px #f44747;
 }
 
 @media (min-width: 768px) {
@@ -36,4 +57,104 @@
   .organisation {
     font-size: 16px;
   }
+}
+
+.column {
+  height: 60px;
+}
+
+/* ---------------------
+ chart
+----------------------*/
+
+.wrapper {
+  position: relative;
+}
+
+/* ---------------------
+ Vertical Bars
+----------------------*/
+
+.bar {
+  float: left;
+  position: absolute;
+  bottom: 0;
+  z-index: 99;
+  height: 80px;
+  width: 80px;
+  margin: 0 40px;
+  background-color: #349b74;
+}
+
+.bar:before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  bottom: 7px;
+  height: 100%;
+  width: 15px;
+  background-color: #42cb96;
+  -webkit-transform: skewY(45deg);
+}
+
+.bar:after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -8px;
+  width: 80px;
+  height: 15px;
+  background-color: #42cb96;
+  -moz-transform: skewX(45deg);
+  -o-transform: skewX(45deg);
+  -webkit-transform: skewX(45deg);
+  transform: skewX(45deg);
+}
+
+@media (min-width: 768px) {
+  .bar {
+    float: left;
+    position: absolute;
+    bottom: 0;
+    z-index: 99;
+    height: 80px;
+    width: 160px;
+    margin: 0 40px;
+    background-color: #349b74;
+  }
+
+  .bar:before {
+    content: "";
+    position: absolute;
+    left: -15px;
+    bottom: 7px;
+    height: 100%;
+    width: 15px;
+    background-color: #42cb96;
+    -webkit-transform: skewY(45deg);
+  }
+
+  .bar:after {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -8px;
+    width: 160px;
+    height: 15px;
+    background-color: #42cb96;
+    -moz-transform: skewX(45deg);
+    -o-transform: skewX(45deg);
+    -webkit-transform: skewX(45deg);
+    transform: skewX(45deg);
+  }
+}
+
+.one {
+  margin-left: 35px;
+  height: 90%;
+}
+
+.two {
+  height: 80%;
+  margin-left: 35px;
 }

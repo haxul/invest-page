@@ -3,14 +3,11 @@ import { connect } from "react-redux";
 import "./Diagram.scss";
 import rubleIcon from "../icons/ruble.png";
 import questionMark from "../icons/mark.png";
+import {setSpaceBetweenNumber} from "../App.js";
 
 class Diagram extends Component {
-  setSpaces = number => {
-    number += "";
-    number = number.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1 ");
-    return number;
-  };
 
+  // methot to get profit when rate is 6,5%
   getProfitFor6Rate = (invest, time) => {
     invest = parseInt(invest);
     time = parseInt(time);
@@ -34,6 +31,8 @@ class Diagram extends Component {
       this.props.store.interestRate,
       this.props.store.time
     );
+
+    // computing calumn heigth --------
     let calumnHeight =
       (profit /
         this.getProfitFor6Rate(
@@ -44,9 +43,10 @@ class Diagram extends Component {
 
     if (this.props.store.interestRate === 18) calumnHeight *= 0.7;
     else if (this.props.store.interestRate === 25) calumnHeight *= 0.5;
-
+//-------------------
     return (
       <>
+
         <div className="row main align-items-end justify-content-around">
           <div
             className=" col-5 col-md-4 "
@@ -58,7 +58,7 @@ class Diagram extends Component {
                 <p className="mb-0 rate">
                   {" "}
                   +{" "}
-                  {this.setSpaces(
+                  {setSpaceBetweenNumber(
                     this.getProfitFor6Rate(
                       this.props.store.invest,
                       this.props.store.time
@@ -82,7 +82,7 @@ class Diagram extends Component {
               <div className="col-12 text text-center">
                 <p className="mb-0 rate">
                   {" "}
-                  + {this.setSpaces(profit)}
+                  + {setSpaceBetweenNumber(profit)}
                   <img src={rubleIcon} className="ml-2 mb-1" alt="" />
                 </p>
                 <p className="mb-0 underRate">

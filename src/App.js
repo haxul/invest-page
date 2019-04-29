@@ -4,12 +4,13 @@ import { connect } from "react-redux";
 import Diagram from "./components/Diagram.js";
 import rubleIcon from "./icons/ruble.png";
 
-class App extends Component {
-  setSpaceInNumber = number => {
+export function setSpaceBetweenNumber(number) {
     number += "";
     number = number.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1 ");
     return number;
-  };
+}
+
+class App extends Component {
 
   setInvest = e => {
     this.props.dSetInvest(e.target.value);
@@ -32,7 +33,7 @@ class App extends Component {
             <h4 className="pb-4">Калькулятор доходности портфеля</h4>
             <p className="underLable">Сумма инвестрирования</p>
             <p className=" investSum py-0">
-              <span>{this.setSpaceInNumber(this.props.store.invest)} 000</span>{" "}
+              <span>{setSpaceBetweenNumber(this.props.store.invest)} 000</span>{" "}
               <img
                 style={{ marginBottom: "2px" }}
                 src={rubleIcon}

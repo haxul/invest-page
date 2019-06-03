@@ -5,13 +5,12 @@
 
 ## How to run SPA: 
 
-  * You need download and install [node.js](https://nodejs.org/en/) on your computer
-  * In the project directory, you can run:
+You need download and install [node.js](https://nodejs.org/en/) on your computer.
+In the project directory, you can run:
     
-    ### npm install
-    ### npm start
+### `npm install`
 
-
+To install project dependencies
 
 ### `npm start`
 

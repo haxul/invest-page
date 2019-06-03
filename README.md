@@ -4,7 +4,7 @@
   <img src="logo.png" style = "width: 500px; heigth: 700px; border-radius: 10px"  />
 </p>
 
-## How to run SPA: 
+## Getting Started:
 
 You need download and install [node.js](https://nodejs.org/en/) on your computer.
 In the project directory, you can run:

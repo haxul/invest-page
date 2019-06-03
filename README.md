@@ -1,8 +1,17 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Single Page Application INVEST-PAGE
+<p align="center">
+  <img src="logo.png" width = "150px" heigth = "200px" />
+</p>
 
-## Available Scripts
+## How to run SPA: 
 
-In the project directory, you can run:
+  * You need download and install [node.js](https://nodejs.org/en/) on your computer
+  * In the project directory, you can run:
+    
+    ### npm install
+    ### npm start
+
+
 
 ### `npm start`
 

@@ -1,6 +1,6 @@
 # Single Page Application INVEST-PAGE
 <p align="center">
-  <img src="logo.png" width = "150px" heigth = "200px" />
+  <img src="logo.png" width = "300px" heigth = "400px" />
 </p>
 
 ## How to run SPA: 
